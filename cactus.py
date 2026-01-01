@@ -13,24 +13,32 @@ for i in range(n):
 	move(North)
 
 
-for _ in range(n):
+for raw in range(n):
 	for i in range(n):
+		is_swap = False
 		for j in range(n):
 			a = measure()
 			b = measure(East)
-			if a > b:
+			if j != n - 1 and a > b:
 				swap(East)
+				is_swap = True
 			move(East)
+		if not is_swap:
+			break
 	move(North)
 
-for _ in range(n):
+for col in range(n):
 	for i in range(n):
+		is_swap = False
 		for j in range(n):
 			a = measure()
 			b = measure(North)
-			if a > b:
+			if j != n-1 and a > b:
 				swap(North)
+				is_swap = True
 			move(North)
+		if not is_swap:
+			break
 	move(East)
 	
 harvest()
